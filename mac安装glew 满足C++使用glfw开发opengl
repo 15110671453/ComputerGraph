@@ -1,0 +1,888 @@
+mac安装glew 满足C++使用glfw开发opengl
+
+
+Last login: Wed Mar 29 14:24:44 on ttys002
+bogon:~ admindyn$ brew install glew
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 4 taps (homebrew/core, homebrew/dupes, homebrew/php, homebrew/versions).
+==> New Formulae
+alexjs                         juju-wait
+awslogs                        latexila
+biogeme                        libcds
+bluepill                       librealsense
+buildifier                     libtensorflow
+conjure-up                     llvm@3.9
+crowdin                        magic-wormhole
+ctop                           monitoring-plugins
+dhall-json                     mysql-utilities
+dmtx-utils                     pqiv
+docker-credential-helper       prest
+dvd-vr                         sha1dc
+fzy                            shellshare
+gandi.cli                      shfmt
+go@1.7                         spigot
+gobuster                       streamlink
+grunt                          teleport
+gtef                           tfenv
+guetzli                        uniutils
+homebrew/dupes/ncompress       urh
+homebrew/php/composer@1.2      woboq_codebrowser
+homebrew/php/php70-memcache    write-good
+homebrew/php/php70-xmldiff     xsv
+homebrew/php/php71-couchbase   zxing-cpp
+jenkins-lts
+==> Updated Formulae
+abcde
+abcm2ps
+ace
+ack
+acpica
+activemq
+admesh
+advancemame
+aha
+algol68g
+alot
+alpine
+amtterm
+ansible
+ansible-cmdb
+antigen
+apache-drill
+apache-zeppelin
+app-engine-java
+aptly
+aptly-completion
+arangodb
+archi-steam-farm
+arm
+armor
+artifactory
+asn1c
+atk
+atlassian-cli
+augeas
+aurora-cli
+autoconf-archive
+autogen
+avra
+aws-elasticbeanstalk
+aws-sdk-cpp
+awscli
+azure-cli
+b2-tools
+bacula-fd
+bagit
+baobab
+basex
+bash-completion
+bash-git-prompt
+bazel
+binutils
+bit
+bitrise
+blackbox
+bmake
+bochs
+borg
+botan
+boxes
+buku
+byobu
+byteman
+cake
+calcurse
+cargo-completion
+carrot2
+carthage
+cassandra
+castxml
+ccache
+certbot
+certigo
+ceylon
+chaiscript
+chakra
+charm
+charm-tools
+cheat
+check
+checkstyle
+cheops
+chromaprint
+chromedriver
+clang-format
+clhep
+closure-compiler
+cnats
+cockatrice
+codequery
+collector-sidecar
+commandbox
+compcert
+conan
+concurrencykit
+consul-backinator
+consul-template
+convox
+coreutils
+coturn
+couchdb-lucene
+creduce
+cromwell
+crystal-icr
+crystal-lang
+csfml
+csvtomd
+curl
+curlpp
+dante
+datomic
+davmail
+dbt
+dcmtk
+debianutils
+deis
+depqbf
+dialog
+diff-pdf
+diff-so-fancy
+direnv
+discount
+django-completion
+dmd
+docker
+docker-completion
+docker-machine
+docker-machine-completion
+doctl
+doitlive
+dosfstools
+dovecot
+dpkg
+dscanner
+dub
+duplicity
+dvm
+eigen
+ejabberd
+ejdb
+elasticsearch
+elixirscript
+elm-format
+emp
+entr
+eralchemy
+erlang
+esniper
+etcd
+eventql
+evince
+excel-compare
+exercism
+exim
+fabio
+fabric
+fdroidserver
+feedgnuplot
+feh
+fftw
+file-roller
+filebeat
+fio
+flake8
+flow ✔
+flyway
+folly
+fonttools
+fossil
+fpc
+fq
+freeradius-server
+freetds
+fuse-emulator
+fzf
+gammu
+gauge
+gcc@4.9
+gcore
+gdbm
+gdk-pixbuf
+geckodriver
+gegl
+geoserver
+getmail
+gexiv2
+ghostscript
+gifcap
+git
+git-annex
+git-archive-all
+git-ftp
+git-lfs
+git-plus
+git-quick-stats
+git-secret
+git-subrepo
+git-town
+gitbucket
+github-release
+gitlab-ci-multi-runner
+gjs
+glib
+gnome-autoar
+gnome-builder
+gnome-icon-theme
+gnome-themes-standard
+gnu-apl
+gnu-units
+gnumeric
+gnupg-pkcs11-scd
+gnuplot
+gnuradio
+gnutls
+goaccess
+gobject-introspection
+goenv
+gofabric8
+goffice
+googler
+gosu
+gotags
+gpgme
+gradle
+grails
+graphene
+grc
+greed
+gron
+groonga
+groovy
+grpc
+gsettings-desktop-schemas
+gspell
+gssdp
+gst-editing-services
+gst-libav
+gst-plugins-bad
+gst-plugins-base
+gst-plugins-good
+gst-plugins-ugly
+gst-python
+gst-rtsp-server
+gst-validate
+gstreamer
+gti
+gtk+3
+gtksourceview3
+gucharmap
+guile
+gupnp
+gxml
+hana
+handbrake
+haproxy
+harfbuzz
+hashcat
+haskell-stack
+haxe
+hebcal
+heroku
+hg-flow
+highlight
+hledger
+homebank
+homebrew/dupes/diffutils
+homebrew/dupes/openssh
+homebrew/dupes/screen
+homebrew/dupes/tcl-tk
+homebrew/dupes/whois
+homebrew/php/arcanist
+homebrew/php/codeception
+homebrew/php/composer
+homebrew/php/deployer
+homebrew/php/drupal-code-sniffer
+homebrew/php/drush
+homebrew/php/php-code-sniffer
+homebrew/php/php-cs-fixer
+homebrew/php/php53-timezonedb
+homebrew/php/php54-couchbase
+homebrew/php/php54-imagick
+homebrew/php/php54-magickwand
+homebrew/php/php54-timezonedb
+homebrew/php/php55-couchbase
+homebrew/php/php55-imagick
+homebrew/php/php55-magickwand
+homebrew/php/php55-phalcon
+homebrew/php/php55-timezonedb
+homebrew/php/php55-xdebug
+homebrew/php/php56
+homebrew/php/php56-couchbase
+homebrew/php/php56-gmp
+homebrew/php/php56-imagick
+homebrew/php/php56-intl
+homebrew/php/php56-magickwand
+homebrew/php/php56-mcrypt
+homebrew/php/php56-opcache
+homebrew/php/php56-pcntl
+homebrew/php/php56-pdo-dblib
+homebrew/php/php56-pdo-pgsql
+homebrew/php/php56-phalcon
+homebrew/php/php56-pspell
+homebrew/php/php56-snmp
+homebrew/php/php56-tidy
+homebrew/php/php56-timezonedb
+homebrew/php/php56-xdebug
+homebrew/php/php70 ✔
+homebrew/php/php70-couchbase
+homebrew/php/php70-gmp
+homebrew/php/php70-imagick
+homebrew/php/php70-intl
+homebrew/php/php70-mcrypt
+homebrew/php/php70-opcache
+homebrew/php/php70-pcntl
+homebrew/php/php70-pdo-dblib
+homebrew/php/php70-pdo-pgsql
+homebrew/php/php70-phalcon
+homebrew/php/php70-pspell
+homebrew/php/php70-snmp
+homebrew/php/php70-tidy
+homebrew/php/php70-timezonedb
+homebrew/php/php70-v8js
+homebrew/php/php70-xdebug
+homebrew/php/php71
+homebrew/php/php71-ast
+homebrew/php/php71-gmp
+homebrew/php/php71-imagick
+homebrew/php/php71-intl
+homebrew/php/php71-mcrypt
+homebrew/php/php71-opcache
+homebrew/php/php71-pcntl
+homebrew/php/php71-pdo-dblib
+homebrew/php/php71-pdo-pgsql
+homebrew/php/php71-pspell
+homebrew/php/php71-snmp
+homebrew/php/php71-tidy
+homebrew/php/php71-timezonedb
+homebrew/php/php71-v8js
+homebrew/php/php71-xdebug
+homebrew/php/phpunit
+homebrew/php/phpunit@5.7
+homebrew/php/psysh
+homebrew/php/terminus
+homebrew/php/terminus@0.13
+httest
+httpie
+hugo
+hunspell
+hyper
+hyperscan
+i3status
+ibex
+icecast
+idris
+ievms
+imagemagick
+imagemagick@6
+infer
+influxdb
+iperf3
+ipfs
+irssi
+jasper
+jboss-forge
+jemalloc
+jenkins
+jetty
+jid
+jrnl
+jruby
+jshon
+json-fortran
+json-glib
+jsonschema2pojo
+juju
+jump
+kafka
+khal
+kibana
+knot-resolver
+kobalt
+kompose
+kops
+kotlin
+ktmpl
+kubernetes-cli
+kubernetes-helm
+latex2html
+ldc
+lean-cli
+leveldb
+lft
+lftp
+libarchive
+libav
+libbluray
+libchamplain
+libcouchbase
+libdvbpsi
+libepoxy
+libfabric
+libffi
+libgee
+libgosu
+libgpg-error ✔
+libgtop
+libgweather
+libgxps
+liblinear
+libmatroska
+libmpdclient
+libmxml
+libosmium
+libphonenumber
+libpng ✔
+libpointing
+librdkafka
+libre
+libsodium
+libspectre
+libsquish
+libstfl
+libtommath
+libvoikko
+libwebsockets
+libwps
+link-grammar
+linkerd
+lldpd
+llvm
+logstash
+logtalk
+lxc
+lynis
+lzo
+m-cli
+macvim
+mailutils
+mame
+mandoc
+mariadb
+mbedtls
+mdk
+media-info
+mediaconch
+mednafen
+memcached
+menhir
+mercurial
+meson
+mesos
+metabase
+metricbeat
+midnight-commander
+mighttpd2
+mikutter
+miller
+mingw-w64
+minimesos
+minio
+minizinc
+minizip
+mitmproxy
+mkdocs
+mkvtoolnix
+mobile-shell
+molecule
+monetdb
+mongo-c-driver
+mongo-orchestration
+mongodb
+monit
+mono ✔
+monotone
+mosquitto
+mpd
+mutt
+mycli
+mypy
+mysql@5.5
+mysql@5.6
+ncmpc
+neo4j
+netpbm
+newlisp
+newt
+nexus
+nghttp2
+nifi
+node
+node-build
+node@0.10
+node@0.12
+node@4
+node@6
+nomad
+notmuch
+nspr
+nsq
+nss
+nuget
+numpy
+nvc
+offlineimap
+omega
+ompl
+ooniprobe
+open-mpi
+openmotif
+openrtsp
+openvdb
+openvpn
+osc
+osquery
+osrm-backend
+p11-kit
+packer
+packetbeat
+paket
+pandoc-citeproc
+pandoc-crossref
+pango
+par2
+parallel
+pass
+pcap_dnsproxy
+pcre ✔
+pcre2
+pdf2htmlex
+pdfgrep
+pdftoedn
+pdftoipe
+peco
+percona-server
+percona-xtrabackup
+perl
+pgcli
+pgpool-ii
+pgrouting
+pidgin
+pioneer
+pius
+pkg-config ✔
+planck
+plantuml
+platformio
+platypus
+pmd
+pngquant
+poco
+ponyc
+poppler
+pre-commit
+proselint
+protobuf-swift
+psqlodbc
+purescript
+pwntools
+pybind11
+pyenv
+pygobject3
+pyinvoke
+pypy
+pyqt5
+python3
+qscintilla2
+quantlib
+quex
+ragel
+rancher-cli
+rancher-compose
+rclone
+re2
+readline ✔
+redis-leveldb
+redpen
+reposurgeon
+rgbds
+riak
+ringojs
+ripgrep
+rmlint
+robot-framework
+rocksdb
+rom-tools
+roswell
+rpcgen
+rtags
+ruby
+ruby-build
+rust
+s-lang
+s6
+saltstack
+scala@2.10
+scala@2.11
+scalaenv
+scipy
+scm-manager
+screenfetch
+scriptcs
+selenium-server-standalone
+sflowtool
+shadowsocks-libev
+shairport-sync
+shared-mime-info
+shellcheck
+shyaml
+simple-obfs
+sip
+sjk
+skinny
+slimerjs
+slrn
+smali
+snap-telemetry
+softhsm
+sonar-scanner
+sonarqube
+source-to-image
+sourcery
+spdlog
+sqlmap
+sqlparse
+ssdb
+ssh-copy-id
+sshguard
+statik
+stern
+stlink
+storm
+stout
+strongswan
+stuntman
+svgcleaner
+svtplay-dl
+swagger-codegen
+swi-prolog
+swiftformat
+swiftlint
+swiftplate
+swimat
+syncthing
+sysbench
+sysdig
+tailor
+talloc
+tarsnapper
+tbb
+tcpreplay
+telegraf
+termius
+terraform
+terragrunt
+tesseract
+texmath
+thefuck
+tidy-html5
+timelimit
+tinc
+tintin
+tippecanoe
+tnef
+todolist
+todoman
+tomcat
+tomcat@6
+tomcat@7
+tomcat@8.0
+tor
+translate-shell
+translate-toolkit
+treefrog
+ttyd
+tundra
+twarc
+typescript
+unicorn
+vagrant-completion
+vala
+valabind
+vapoursynth
+varnish
+vault
+vaulted
+vdirsyncer
+vegeta
+verilator
+vert.x
+vim
+vmtouch
+vnu
+vte3
+vultr
+wakatime-cli
+weboob
+webpack
+wesnoth
+winetricks
+wireguard-tools
+wireshark
+x265
+xapian
+xmake
+xonsh
+yarn
+yaz
+yle-dl
+youtube-dl
+zenity
+zimg
+zinc
+znc
+zsh-history-substring-search
+zstd
+==> Renamed Formulae
+bash-completion2 -> bash-completion@2
+bazel02 -> bazel@0.2
+bigdata -> blazegraph
+bison27 -> bison@2.7
+boost-python159 -> boost-python@1.59
+cassandra21 -> cassandra@2.1
+cassandra22 -> cassandra@2.2
+clang-format38 -> clang-format@3.8
+docker111 -> docker@1.11
+docker171 -> docker@1.71
+erlang-r18 -> erlang@18
+ffmpeg28 -> ffmpeg@2.8
+freetds091 -> freetds@0.91
+giflib5 -> giflib@5
+glfw2 -> glfw@2
+gnupg21 -> gnupg@2.1
+gnuplot4 -> gnuplot@4
+go14 -> go@1.4
+go15 -> go@1.5
+go16 -> go@1.6
+gradle214 -> gradle@2.14
+grails25 -> grails@2.5
+gsl1 -> gsl@1
+gst-plugins-bad010 -> gst-plugins-bad@0.10
+gst-plugins-base010 -> gst-plugins-base@0.10
+gst-plugins-good010 -> gst-plugins-good@0.10
+gst-plugins-ugly010 -> gst-plugins-ugly@0.10
+gstreamer010 -> gstreamer@0.10
+homebrew/php/drush5 -> homebrew/php/drush@5
+influxdb08 -> influxdb@0.8
+jboss-as5 -> jboss-as@5
+jetty8 -> jetty@8
+jpeg6b -> jpeg@6
+jpeg9 -> jpeg@9
+kafka080 -> kafka@0.80
+kibana41 -> kibana@4.1
+kibana44 -> kibana@4.4
+kubernetes-cli13 -> kubernetes-cli@1.3
+mariadb100 -> mariadb@10.0
+open-mpi16 -> open-mpi@1.6
+percona-server55 -> percona-server@5.5
+percona-server56 -> percona-server@5.6
+perl514 -> perl@5.14
+perl518 -> perl@5.18
+phantomjs192 -> phantomjs@1.92
+phantomjs198 -> phantomjs@1.98
+postgresql94 -> postgresql@9.4
+postgresql95 -> postgresql@9.5
+rebar3 -> rebar@3
+recipes -> gnome-recipes
+redis26 -> redis@2.6
+redis28 -> redis@2.8
+ruby187 -> ruby@1.8
+ruby193 -> ruby@1.9
+ruby20 -> ruby@2.0
+ruby21 -> ruby@2.1
+ruby22 -> ruby@2.2
+ruby23 -> ruby@2.3
+==> Deleted Formulae
+android-ndk
+android-platform-tools
+android-sdk
+ctorrent
+devhelp
+ee
+elasticsearch@1.7
+elasticsearch@2.3
+homebrew/versions/bash-completion2
+homebrew/versions/bazel02
+homebrew/versions/bison27
+homebrew/versions/cassandra21
+homebrew/versions/cassandra22
+homebrew/versions/clang-format38
+homebrew/versions/docker111
+homebrew/versions/docker171
+homebrew/versions/drush5
+homebrew/versions/erlang-r18
+homebrew/versions/erlang-r19
+homebrew/versions/ffmpeg28
+homebrew/versions/freetds091
+homebrew/versions/giflib5
+homebrew/versions/glfw2
+homebrew/versions/gnupg21
+homebrew/versions/gnuplot4
+homebrew/versions/go14
+homebrew/versions/go15
+homebrew/versions/go16
+homebrew/versions/gradle214
+homebrew/versions/grails25
+homebrew/versions/gsl1
+homebrew/versions/gst-ffmpeg010
+homebrew/versions/gst-plugins-bad010
+homebrew/versions/gst-plugins-base010
+homebrew/versions/gst-plugins-good010
+homebrew/versions/gst-plugins-ugly010
+homebrew/versions/gstreamer010
+homebrew/versions/hdf4
+homebrew/versions/influxdb08
+homebrew/versions/jboss-as5
+homebrew/versions/jenkins-lts
+homebrew/versions/jetty8
+homebrew/versions/jpeg6b
+homebrew/versions/jpeg9
+homebrew/versions/kafka080
+homebrew/versions/kibana41
+homebrew/versions/kibana44
+homebrew/versions/kubernetes-cli13
+homebrew/versions/mariadb100
+homebrew/versions/open-mpi16
+homebrew/versions/percona-server55
+homebrew/versions/percona-server56
+homebrew/versions/perl514
+homebrew/versions/perl518
+homebrew/versions/phantomjs192
+homebrew/versions/phantomjs198
+homebrew/versions/play14
+homebrew/versions/postgresql94
+homebrew/versions/postgresql95
+homebrew/versions/rebar3
+homebrew/versions/redis1310
+homebrew/versions/redis26
+homebrew/versions/redis28
+homebrew/versions/ruby187
+homebrew/versions/ruby193
+homebrew/versions/ruby20
+homebrew/versions/ruby21
+homebrew/versions/ruby22
+homebrew/versions/ruby23
+libgroove
+node@5
+s3sync
+scsh
+silc-client
+suomi-malaga-voikko
+webkitgtk
+xstow
+
+==> Downloading https://homebrew.bintray.com/bottles/glew-2.
+##                                                          ########                                                    ############################                                ###################################################         ######################################################################## 100.0%
+==> Pouring glew-2.0.0.sierra.bottle.tar.gz
+🍺  /usr/local/Cellar/glew/2.0.0: 33 files, 2.8MB
+bogon:~ admindyn$ 
