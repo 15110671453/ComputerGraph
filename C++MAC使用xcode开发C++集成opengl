@@ -1,0 +1,573 @@
+C++MAC使用xcode开发C++集成opengl
+
+第一
+需要安装build phases添加第三方库
+corevideo.framwork
+opengl.framwork
+iokit.framwork
+cocoa.framwork
+
+第二 
+我们使用第三方库对opengl高级封装
+需要安装glfw mac下编译安装
+
+安装glfw 需要安装cmake 用cmake编译安装
+
+检查公司MAC盒子 只有make make install命令
+
+这里我们先安装cmake命令
+
+https://cmake.org/files/v3.8/cmake-3.8.0-rc3-Darwin-x86_64.dmg
+
+这里直接可以下载到cmake的dmg安装包，节省时间不用编译安装
+再编译安装glfw
+
+第三
+引入glfw到工程
+
+5、打开terminal，进入到glfw-3.0.4目录，依次键入以下命令：
+
+cmake 
+
+
+使用CMake后
+bogon:include admindyn$ cd /Users/admindyn/Desktop/libs 
+bogon:libs admindyn$ make install
+Scanning dependencies of target glfw
+[  1%] Building C object src/CMakeFiles/glfw.dir/context.c.o
+[  2%] Building C object src/CMakeFiles/glfw.dir/init.c.o
+[  3%] Building C object src/CMakeFiles/glfw.dir/input.c.o
+[  4%] Building C object src/CMakeFiles/glfw.dir/monitor.c.o
+[  5%] Building C object src/CMakeFiles/glfw.dir/vulkan.c.o
+[  6%] Building C object src/CMakeFiles/glfw.dir/window.c.o
+[  7%] Building C object src/CMakeFiles/glfw.dir/cocoa_init.m.o
+[  8%] Building C object src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
+[  9%] Building C object src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_monitor.m:50:42: warning: 
+      'CGDisplayIOServicePort' is deprecated: first deprecated in macOS 10.9
+      [-Wdeprecated-declarations]
+    info = IODisplayCreateInfoDictionary(CGDisplayIOServicePort(displayID),
+                                         ^
+/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:372:24: note: 
+      'CGDisplayIOServicePort' has been explicitly marked deprecated here
+CG_EXTERN io_service_t CGDisplayIOServicePort(CGDirectDisplayID display)
+                       ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_monitor.m:89:26: warning: 
+      'CGDisplayModeCopyPixelEncoding' is deprecated: first deprecated in macOS
+      10.11 [-Wdeprecated-declarations]
+    CFStringRef format = CGDisplayModeCopyPixelEncoding(mode);
+                         ^
+/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h:174:34: note: 
+      'CGDisplayModeCopyPixelEncoding' has been explicitly marked deprecated
+      here
+CG_EXTERN CFStringRef __nullable CGDisplayModeCopyPixelEncoding(
+                                 ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_monitor.m:118:26: warning: 
+      'CGDisplayModeCopyPixelEncoding' is deprecated: first deprecated in macOS
+      10.11 [-Wdeprecated-declarations]
+    CFStringRef format = CGDisplayModeCopyPixelEncoding(mode);
+                         ^
+/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h:174:34: note: 
+      'CGDisplayModeCopyPixelEncoding' has been explicitly marked deprecated
+      here
+CG_EXTERN CFStringRef __nullable CGDisplayModeCopyPixelEncoding(
+                                 ^
+3 warnings generated.
+[ 10%] Building C object src/CMakeFiles/glfw.dir/cocoa_window.m.o
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:66:22: warning: 
+      'NSBorderlessWindowMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        styleMask |= NSBorderlessWindowMask;
+                     ^~~~~~~~~~~~~~~~~~~~~~
+                     NSWindowStyleMaskBorderless
+/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:952:32: note: 
+      'NSBorderlessWindowMask' has been explicitly marked deprecated here
+static const NSWindowStyleMask NSBorderlessWindowMask API_DEPRECATED_WIT...
+                               ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:69:22: warning: 
+      'NSTitledWindowMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        styleMask |= NSTitledWindowMask | NSClosableWindowMask |
+                     ^~~~~~~~~~~~~~~~~~
+                     NSWindowStyleMaskTitled
+/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:953:32: note: 
+      'NSTitledWindowMask' has been explicitly marked deprecated here
+static const NSWindowStyleMask NSTitledWindowMask API_DEPRECATED_WITH_RE...
+                               ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:69:43: warning: 
+      'NSClosableWindowMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        styleMask |= NSTitledWindowMask | NSClosableWindowMask |
+                                          ^~~~~~~~~~~~~~~~~~~~
+                                          NSWindowStyleMaskClosable
+/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:954:32: note: 
+      'NSClosableWindowMask' has been explicitly marked deprecated here
+static const NSWindowStyleMask NSClosableWindowMask API_DEPRECATED_WITH_...
+                               ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:70:22: warning: 
+      'NSMiniaturizableWindowMask' is deprecated: first deprecated in macOS
+      10.12 [-Wdeprecated-declarations]
+                     NSMiniaturizableWindowMask;
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                     NSWindowStyleMaskMiniaturizable
+/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:955:32: note: 
+      'NSMiniaturizableWindowMask' has been explicitly marked deprecated here
+static const NSWindowStyleMask NSMiniaturizableWindowMask API_DEPRECATED...
+                               ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:73:26: warning: 
+      'NSResizableWindowMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+            styleMask |= NSResizableWindowMask;
+                         ^~~~~~~~~~~~~~~~~~~~~
+                         NSWindowStyleMaskResizable
+/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:956:32: note: 
+      'NSResizableWindowMask' has been explicitly marked deprecated here
+static const NSWindowStyleMask NSResizableWindowMask API_DEPRECATED_WITH...
+                               ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:153:17: warning: 
+      'NSShiftKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    if (flags & NSShiftKeyMask)
+                ^~~~~~~~~~~~~~
+                NSEventModifierFlagShift
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:182:35: note: 
+      'NSShiftKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSShiftKeyMask              API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:155:17: warning: 
+      'NSControlKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    if (flags & NSControlKeyMask)
+                ^~~~~~~~~~~~~~~~
+                NSEventModifierFlagControl
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:183:35: note: 
+      'NSControlKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSControlKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:157:17: warning: 
+      'NSAlternateKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    if (flags & NSAlternateKeyMask)
+                ^~~~~~~~~~~~~~~~~~
+                NSEventModifierFlagOption
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:184:35: note: 
+      'NSAlternateKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSAlternateKeyMask          API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:159:17: warning: 
+      'NSCommandKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    if (flags & NSCommandKeyMask)
+                ^~~~~~~~~~~~~~~~
+                NSEventModifierFlagCommand
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:185:35: note: 
+      'NSCommandKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSCommandKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:183:20: warning: 
+      'NSShiftKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+            return NSShiftKeyMask;
+                   ^~~~~~~~~~~~~~
+                   NSEventModifierFlagShift
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:182:35: note: 
+      'NSShiftKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSShiftKeyMask              API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:186:20: warning: 
+      'NSControlKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+            return NSControlKeyMask;
+                   ^~~~~~~~~~~~~~~~
+                   NSEventModifierFlagControl
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:183:35: note: 
+      'NSControlKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSControlKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:189:20: warning: 
+      'NSAlternateKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+            return NSAlternateKeyMask;
+                   ^~~~~~~~~~~~~~~~~~
+                   NSEventModifierFlagOption
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:184:35: note: 
+      'NSAlternateKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSAlternateKeyMask          API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:192:20: warning: 
+      'NSCommandKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+            return NSCommandKeyMask;
+                   ^~~~~~~~~~~~~~~~
+                   NSEventModifierFlagCommand
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:185:35: note: 
+      'NSCommandKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSCommandKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:561:33: warning: 
+      'NSDeviceIndependentModifierFlagsMask' is deprecated: first deprecated in
+      macOS 10.12 [-Wdeprecated-declarations]
+        [event modifierFlags] & NSDeviceIndependentModifierFlagsMask;
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                NSEventModifierFlagDeviceIndependentFlagsMask
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:189:35: note: 
+      'NSDeviceIndependentModifierFlagsMask' has been explicitly marked
+      deprecated here
+static const NSEventModifierFlags NSDeviceIndependentModifierFlagsMas...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:777:25: warning: 
+      'NSKeyUp' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    if ([event type] == NSKeyUp && ([event modifierFlags] & NSCommandKeyMask))
+                        ^~~~~~~
+                        NSEventTypeKeyUp
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:75:26: note: 
+      'NSKeyUp' has been explicitly marked deprecated here
+static const NSEventType NSKeyUp                API_DEPRECATED_WITH_REPL...
+                         ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:777:61: warning: 
+      'NSCommandKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+  ...type] == NSKeyUp && ([event modifierFlags] & NSCommandKeyMask))
+                                                  ^~~~~~~~~~~~~~~~
+                                                  NSEventModifierFlagCommand
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:185:35: note: 
+      'NSCommandKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSCommandKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:862:38: warning: 
+      'NSAlternateKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        setKeyEquivalentModifierMask:NSAlternateKeyMask | NSCommandKeyMask];
+                                     ^~~~~~~~~~~~~~~~~~
+                                     NSEventModifierFlagOption
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:184:35: note: 
+      'NSAlternateKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSAlternateKeyMask          API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:862:59: warning: 
+      'NSCommandKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+  ...| NSCommandKeyMask];
+       ^~~~~~~~~~~~~~~~
+       NSEventModifierFlagCommand
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:185:35: note: 
+      'NSCommandKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSCommandKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:894:35: warning: 
+      'NSControlKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+     setKeyEquivalentModifierMask:NSControlKeyMask | NSCommandKeyMask];
+                                  ^~~~~~~~~~~~~~~~
+                                  NSEventModifierFlagControl
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:183:35: note: 
+      'NSControlKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSControlKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:894:54: warning: 
+      'NSCommandKeyMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+     setKeyEquivalentModifierMask:NSControlKeyMask | NSCommandKeyMask];
+                                                     ^~~~~~~~~~~~~~~~
+                                                     NSEventModifierFlagCommand
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:185:35: note: 
+      'NSCommandKeyMask' has been explicitly marked deprecated here
+static const NSEventModifierFlags NSCommandKeyMask            API_DEPREC...
+                                  ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:1354:55: warning: 
+      'NSAnyEventMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        NSEvent* event = [NSApp nextEventMatchingMask:NSAnyEventMask
+                                                      ^~~~~~~~~~~~~~
+                                                      NSEventMaskAny
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:158:26: note: 
+      'NSAnyEventMask' has been explicitly marked deprecated here
+static const NSEventMask NSAnyEventMask                 API_DEPRECATED_W...
+                         ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:1373:51: warning: 
+      'NSAnyEventMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    NSEvent *event = [NSApp nextEventMatchingMask:NSAnyEventMask
+                                                  ^~~~~~~~~~~~~~
+                                                  NSEventMaskAny
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:158:26: note: 
+      'NSAnyEventMask' has been explicitly marked deprecated here
+static const NSEventMask NSAnyEventMask                 API_DEPRECATED_W...
+                         ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:1385:51: warning: 
+      'NSAnyEventMask' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    NSEvent* event = [NSApp nextEventMatchingMask:NSAnyEventMask
+                                                  ^~~~~~~~~~~~~~
+                                                  NSEventMaskAny
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:158:26: note: 
+      'NSAnyEventMask' has been explicitly marked deprecated here
+static const NSEventMask NSAnyEventMask                 API_DEPRECATED_W...
+                         ^
+/Users/admindyn/Desktop/glfw-3.2.1/src/cocoa_window.m:1398:50: warning: 
+      'NSApplicationDefined' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+    NSEvent* event = [NSEvent otherEventWithType:NSApplicationDefined
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 NSEventTypeApplicationDefined
+/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:79:26: note: 
+      'NSApplicationDefined' has been explicitly marked deprecated here
+static const NSEventType NSApplicationDefined   API_DEPRECATED_WITH_REPL...
+                         ^
+24 warnings generated.
+[ 11%] Building C object src/CMakeFiles/glfw.dir/cocoa_time.c.o
+[ 12%] Building C object src/CMakeFiles/glfw.dir/posix_tls.c.o
+[ 13%] Building C object src/CMakeFiles/glfw.dir/nsgl_context.m.o
+/Users/admindyn/Desktop/glfw-3.2.1/src/nsgl_context.m:228:18: warning: 
+      'NSOpenGLPFAStereo' is deprecated: first deprecated in macOS 10.12
+      [-Wdeprecated-declarations]
+        ADD_ATTR(NSOpenGLPFAStereo);
+                 ^
+/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGL.h:85:2: note: 
+      'NSOpenGLPFAStereo' has been explicitly marked deprecated here
+        NSOpenGLPFAStereo NS_ENUM_DEPRECATED_MAC(10_0, 10_12)        =   6,
+        ^
+1 warning generated.
+[ 14%] Linking C static library libglfw3.a
+[ 14%] Built target glfw
+Scanning dependencies of target heightmap
+[ 15%] Building C object examples/CMakeFiles/heightmap.dir/heightmap.c.o
+[ 16%] Building C object examples/CMakeFiles/heightmap.dir/__/deps/glad.c.o
+[ 17%] Linking C executable heightmap.app/Contents/MacOS/heightmap
+Copying OS X content examples/heightmap.app/Contents/Resources/glfw.icns
+[ 17%] Built target heightmap
+Scanning dependencies of target wave
+[ 18%] Building C object examples/CMakeFiles/wave.dir/wave.c.o
+[ 19%] Building C object examples/CMakeFiles/wave.dir/__/deps/glad.c.o
+[ 20%] Linking C executable wave.app/Contents/MacOS/wave
+Copying OS X content examples/wave.app/Contents/Resources/glfw.icns
+[ 20%] Built target wave
+Scanning dependencies of target splitview
+[ 21%] Building C object examples/CMakeFiles/splitview.dir/splitview.c.o
+[ 22%] Building C object examples/CMakeFiles/splitview.dir/__/deps/glad.c.o
+[ 23%] Linking C executable splitview.app/Contents/MacOS/splitview
+Copying OS X content examples/splitview.app/Contents/Resources/glfw.icns
+[ 23%] Built target splitview
+Scanning dependencies of target simple
+[ 24%] Building C object examples/CMakeFiles/simple.dir/simple.c.o
+[ 25%] Building C object examples/CMakeFiles/simple.dir/__/deps/glad.c.o
+[ 26%] Linking C executable simple.app/Contents/MacOS/simple
+Copying OS X content examples/simple.app/Contents/Resources/glfw.icns
+[ 26%] Built target simple
+Scanning dependencies of target particles
+[ 27%] Building C object examples/CMakeFiles/particles.dir/particles.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/examples/particles.c:38:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 28%] Building C object examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.c:30:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 29%] Building C object examples/CMakeFiles/particles.dir/__/deps/getopt.c.o
+[ 30%] Building C object examples/CMakeFiles/particles.dir/__/deps/glad.c.o
+[ 31%] Linking C executable particles.app/Contents/MacOS/particles
+Copying OS X content examples/particles.app/Contents/Resources/glfw.icns
+[ 31%] Built target particles
+Scanning dependencies of target gears
+[ 32%] Building C object examples/CMakeFiles/gears.dir/gears.c.o
+[ 33%] Building C object examples/CMakeFiles/gears.dir/__/deps/glad.c.o
+[ 34%] Linking C executable gears.app/Contents/MacOS/gears
+Copying OS X content examples/gears.app/Contents/Resources/glfw.icns
+[ 34%] Built target gears
+Scanning dependencies of target boing
+[ 34%] Building C object examples/CMakeFiles/boing.dir/boing.c.o
+[ 35%] Building C object examples/CMakeFiles/boing.dir/__/deps/glad.c.o
+[ 36%] Linking C executable boing.app/Contents/MacOS/boing
+Copying OS X content examples/boing.app/Contents/Resources/glfw.icns
+[ 36%] Built target boing
+Scanning dependencies of target clipboard
+[ 37%] Building C object tests/CMakeFiles/clipboard.dir/clipboard.c.o
+[ 38%] Building C object tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o
+[ 39%] Building C object tests/CMakeFiles/clipboard.dir/__/deps/glad.c.o
+[ 40%] Linking C executable clipboard
+[ 40%] Built target clipboard
+Scanning dependencies of target title
+[ 41%] Building C object tests/CMakeFiles/title.dir/title.c.o
+[ 42%] Building C object tests/CMakeFiles/title.dir/__/deps/glad.c.o
+[ 43%] Linking C executable title.app/Contents/MacOS/title
+[ 43%] Built target title
+Scanning dependencies of target windows
+[ 44%] Building C object tests/CMakeFiles/windows.dir/windows.c.o
+[ 45%] Building C object tests/CMakeFiles/windows.dir/__/deps/getopt.c.o
+[ 46%] Building C object tests/CMakeFiles/windows.dir/__/deps/glad.c.o
+[ 47%] Linking C executable windows.app/Contents/MacOS/windows
+[ 47%] Built target windows
+Scanning dependencies of target timeout
+[ 48%] Building C object tests/CMakeFiles/timeout.dir/timeout.c.o
+[ 49%] Building C object tests/CMakeFiles/timeout.dir/__/deps/glad.c.o
+[ 50%] Linking C executable timeout.app/Contents/MacOS/timeout
+[ 50%] Built target timeout
+Scanning dependencies of target threads
+[ 51%] Building C object tests/CMakeFiles/threads.dir/threads.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/tests/threads.c:31:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 52%] Building C object tests/CMakeFiles/threads.dir/__/deps/tinycthread.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.c:30:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 53%] Building C object tests/CMakeFiles/threads.dir/__/deps/glad.c.o
+[ 54%] Linking C executable threads.app/Contents/MacOS/threads
+[ 54%] Built target threads
+Scanning dependencies of target gamma
+[ 55%] Building C object tests/CMakeFiles/gamma.dir/gamma.c.o
+[ 56%] Building C object tests/CMakeFiles/gamma.dir/__/deps/getopt.c.o
+[ 57%] Building C object tests/CMakeFiles/gamma.dir/__/deps/glad.c.o
+[ 58%] Linking C executable gamma
+[ 58%] Built target gamma
+Scanning dependencies of target tearing
+[ 59%] Building C object tests/CMakeFiles/tearing.dir/tearing.c.o
+[ 60%] Building C object tests/CMakeFiles/tearing.dir/__/deps/getopt.c.o
+[ 61%] Building C object tests/CMakeFiles/tearing.dir/__/deps/glad.c.o
+[ 62%] Linking C executable tearing.app/Contents/MacOS/tearing
+[ 62%] Built target tearing
+Scanning dependencies of target icon
+[ 63%] Building C object tests/CMakeFiles/icon.dir/icon.c.o
+[ 64%] Building C object tests/CMakeFiles/icon.dir/__/deps/glad.c.o
+[ 65%] Linking C executable icon.app/Contents/MacOS/icon
+[ 65%] Built target icon
+Scanning dependencies of target empty
+[ 66%] Building C object tests/CMakeFiles/empty.dir/empty.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/tests/empty.c:30:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 67%] Building C object tests/CMakeFiles/empty.dir/__/deps/tinycthread.c.o
+In file included from /Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.c:30:
+/Users/admindyn/Desktop/glfw-3.2.1/deps/tinycthread.h:126:9: warning: 
+      'CLOCK_REALTIME' macro redefined [-Wmacro-redefined]
+#define CLOCK_REALTIME 0
+        ^
+/usr/include/time.h:154:9: note: previous definition is here
+#define CLOCK_REALTIME _CLOCK_REALTIME
+        ^
+1 warning generated.
+[ 68%] Building C object tests/CMakeFiles/empty.dir/__/deps/glad.c.o
+[ 69%] Linking C executable empty.app/Contents/MacOS/empty
+[ 69%] Built target empty
+Scanning dependencies of target glfwinfo
+[ 70%] Building C object tests/CMakeFiles/glfwinfo.dir/glfwinfo.c.o
+[ 71%] Building C object tests/CMakeFiles/glfwinfo.dir/__/deps/getopt.c.o
+[ 72%] Building C object tests/CMakeFiles/glfwinfo.dir/__/deps/glad.c.o
+[ 73%] Linking C executable glfwinfo
+[ 73%] Built target glfwinfo
+Scanning dependencies of target msaa
+[ 74%] Building C object tests/CMakeFiles/msaa.dir/msaa.c.o
+[ 75%] Building C object tests/CMakeFiles/msaa.dir/__/deps/getopt.c.o
+[ 76%] Building C object tests/CMakeFiles/msaa.dir/__/deps/glad.c.o
+[ 77%] Linking C executable msaa
+[ 77%] Built target msaa
+Scanning dependencies of target cursor
+[ 78%] Building C object tests/CMakeFiles/cursor.dir/cursor.c.o
+[ 79%] Building C object tests/CMakeFiles/cursor.dir/__/deps/glad.c.o
+[ 80%] Linking C executable cursor
+[ 80%] Built target cursor
+Scanning dependencies of target sharing
+[ 81%] Building C object tests/CMakeFiles/sharing.dir/sharing.c.o
+[ 82%] Building C object tests/CMakeFiles/sharing.dir/__/deps/glad.c.o
+[ 83%] Linking C executable sharing.app/Contents/MacOS/sharing
+[ 83%] Built target sharing
+Scanning dependencies of target monitors
+[ 84%] Building C object tests/CMakeFiles/monitors.dir/monitors.c.o
+[ 85%] Building C object tests/CMakeFiles/monitors.dir/__/deps/getopt.c.o
+[ 86%] Building C object tests/CMakeFiles/monitors.dir/__/deps/glad.c.o
+[ 87%] Linking C executable monitors
+[ 87%] Built target monitors
+Scanning dependencies of target reopen
+[ 88%] Building C object tests/CMakeFiles/reopen.dir/reopen.c.o
+[ 89%] Building C object tests/CMakeFiles/reopen.dir/__/deps/glad.c.o
+[ 90%] Linking C executable reopen
+[ 90%] Built target reopen
+Scanning dependencies of target iconify
+[ 91%] Building C object tests/CMakeFiles/iconify.dir/iconify.c.o
+[ 92%] Building C object tests/CMakeFiles/iconify.dir/__/deps/getopt.c.o
+[ 92%] Building C object tests/CMakeFiles/iconify.dir/__/deps/glad.c.o
+[ 93%] Linking C executable iconify
+[ 93%] Built target iconify
+Scanning dependencies of target joysticks
+[ 94%] Building C object tests/CMakeFiles/joysticks.dir/joysticks.c.o
+[ 95%] Building C object tests/CMakeFiles/joysticks.dir/__/deps/glad.c.o
+[ 96%] Linking C executable joysticks
+[ 96%] Built target joysticks
+Scanning dependencies of target events
+[ 97%] Building C object tests/CMakeFiles/events.dir/events.c.o
+[ 98%] Building C object tests/CMakeFiles/events.dir/__/deps/getopt.c.o
+[ 99%] Building C object tests/CMakeFiles/events.dir/__/deps/glad.c.o
+[100%] Linking C executable events
+[100%] Built target events
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/include/GLFW
+-- Installing: /usr/local/include/GLFW/glfw3.h
+-- Installing: /usr/local/include/GLFW/glfw3native.h
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Config.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake
+-- Installing: /usr/local/lib/pkgconfig/glfw3.pc
+-- Installing: /usr/local/lib/libglfw3.a
+bogon:libs admindyn$ 
+执行成功后，会打印出以下内容：
+
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/include/GLFW
+-- Installing: /usr/local/include/GLFW/glfw3.h
+-- Installing: /usr/local/include/GLFW/glfw3native.h
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Config.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets.cmake
+-- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake
+-- Installing: /usr/local/lib/pkgconfig/glfw3.pc
+-- Installing: /usr/local/lib/libglfw3.a
+
+
+MakeInstall后
+
+（1）在Build Settings里找到Header Search Paths
+
+添加terminal中输出的头文件路径：/usr/local/include/
+
+（2）在Build Settings里找到Library Search Paths
+
+添加terminal中输出的lib文件路径：/usr/local/lib/
+
+在Build Phases中的Link Binary With Libraries中，添加：
+
+
+libglfw3.a
